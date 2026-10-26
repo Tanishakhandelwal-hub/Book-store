@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ABC Online Book Store</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="#home" class="logo">ABC<span>Books.</span></a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false">☰</button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#books">Books</a>
+            <a href="#offers">Offers</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <a href="#books" class="cart-button">
+            🛍️ Cart <span id="cartCount">0</span>
+        </a>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
+
+                <h1>Books that inspire.<br>
+                    <span>Stories that stay.</span>
+                </h1>
+
+                <p>
+                    Explore a world of knowledge, imagination and new ideas.
+                    Find your next favourite book at ABC Online Book Store.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#books" class="btn btn-primary">
+                        Explore Books →
+                    </a>
+                    <a href="#categories" class="btn btn-outline">
+                        Browse Categories
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div><strong>500+</strong><small>Books to explore</small></div>
+                    <div><strong>5+</strong><small>Popular categories</small></div>
+                    <div><strong>20%</strong><small>Special discount</small></div>
+                </div>
+            </div>
+
+            <div class="hero-art">
+                <div class="art-circle"></div>
+                <div class="floating-note">☕ Your cosy reading corner</div>
+                <div class="book-stack">
+                    <div class="book book-one">
+                        <span>THE ART OF<br>LEARNING</span>
+                        <small>GROW EVERY DAY</small>
+                    </div>
+                    <div class="book book-two">
+                        <span>DESIGN<br>YOUR LIFE</span>
+                    </div>
+                    <div class="book book-three">
+                        <span>THE<br>BOOK OF<br>IDEAS</span>
+                    </div>
+                </div>
+                <span class="sparkle sparkle-one">✦</span>
+                <span class="sparkle sparkle-two">✧</span>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="benefits">
+            <div class="benefit">
+                <span>📚</span>
+                <div><strong>Wide Collection</strong><small>Books for every mind</small></div>
+            </div>
+            <div class="benefit">
+                <span>💰</span>
+                <div><strong>Great Prices</strong><small>Value for every reader</small></div>
+            </div>
+            <div class="benefit">
+                <span>🎁</span>
+                <div><strong>Special Offers</strong><small>More books, more savings</small></div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="section" id="categories">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">FIND YOUR INTEREST</span>
+                    <h2>Explore Categories</h2>
+                    <p>Something wonderful is waiting on every shelf.</p>
+                </div>
+            </div>
+
+            <div class="category-grid">
+                <button class="category-card" data-category="Programming">
+                    <span class="category-icon">💻</span>
+                    <strong>Programming</strong>
+                    <small>Code your future</small>
+                </button>
+
+                <button class="category-card" data-category="Computer Science">
+                    <span class="category-icon">🧠</span>
+                    <strong>Computer Science</strong>
+                    <small>Understand technology</small>
+                </button>
+
+                <button class="category-card" data-category="Business">
+                    <span class="category-icon">📈</span>
+                    <strong>Business</strong>
+                    <small>Think and grow</small>
+                </button>
+
+                <button class="category-card" data-category="Fiction">
+                    <span class="category-icon">📖</span>
+                    <strong>Fiction</strong>
+                    <small>Enter new worlds</small>
+                </button>
+
+                <button class="category-card" data-category="Competitive Exams">
+                    <span class="category-icon">🎓</span>
+                    <strong>Competitive Exams</strong>
+                    <small>Prepare to succeed</small>
+                </button>
+            </div>
+        </section>
+
+        <!-- Books -->
+        <section class="section books-section" id="books">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">HANDPICKED FOR YOU</span>
+                    <h2>Popular Books</h2>
+                    <p>Discover books that help you learn and grow.</p>
+                </div>
+            </div>
+
+            <div class="book-tools">
+                <input type="search" id="bookSearch"
+                       placeholder="🔍 Search books or authors..."
+                       aria-label="Search books or authors">
+
+                <select id="categoryFilter" aria-label="Filter books by category">
+                    <option value="All">All Categories</option>
+                    <option value="Programming">Programming</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Business">Business</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Competitive Exams">Competitive Exams</option>
+                </select>
+            </div>
+
+            <p id="resultsMessage" class="results-message"
+               aria-live="polite"></p>
+
+            <div class="book-grid" id="bookGrid">
+
+                <article class="book-card"
+                         data-category="Programming"
+                         data-name="Python Programming"
+                         data-author="John Smith"
+                         data-price="450"
+                         data-icon="🐍"
+                         data-colour="green">
+                    <div class="book-cover cover-green">
+                        <span class="cover-label">LEARN • PRACTISE • BUILD</span>
+                        <span class="cover-emoji">🐍</span>
+                        <h3>Python<br>Programming</h3>
+                        <small>YOUR CODING JOURNEY</small>
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">Programming</span>
+                        <h3>Python Programming</h3>
+                        <p>John Smith</p>
+                        <div class="book-bottom">
+                            <strong>₹450</strong>
+                            <button class="add-cart" type="button">+ Add</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card"
+                         data-category="Computer Science"
+                         data-name="Web Technology"
+                         data-author="David Brown"
+                         data-price="500"
+                         data-icon="🌐"
+                         data-colour="blue">
+                    <div class="book-cover cover-blue">
+                        <span class="cover-label">DESIGN • DEVELOP • DEPLOY</span>
+                        <span class="cover-emoji">🌐</span>
+                        <h3>Web<br>Technology</h3>
+                        <small>BUILD THE WEB</small>
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">Computer Science</span>
+                        <h3>Web Technology</h3>
+                        <p>David Brown</p>
+                        <div class="book-bottom">
+                            <strong>₹500</strong>
+                            <button class="add-cart" type="button">+ Add</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card"
+                         data-category="Computer Science"
+                         data-name="Database Management"
+                         data-author="Robert Lee"
+                         data-price="550"
+                         data-icon="🗄️"
+                         data-colour="purple">
+                    <div class="book-cover cover-purple">
+                        <span class="cover-label">STORE • ORGANISE • ANALYSE</span>
+                        <span class="cover-emoji">🗄️</span>
+                        <h3>Database<br>Management</h3>
+                        <small>MASTER YOUR DATA</small>
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">Computer Science</span>
+                        <h3>Database Management</h3>
+                        <p>Robert Lee</p>
+                        <div class="book-bottom">
+                            <strong>₹550</strong>
+                            <button class="add-cart" type="button">+ Add</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card"
+                         data-category="Business"
+                         data-name="The Business Mindset"
+                         data-author="Sarah Wilson"
+                         data-price="399"
+                         data-icon="📈"
+                         data-colour="orange">
+                    <div class="book-cover cover-orange">
+                        <span class="cover-label">DREAM • PLAN • GROW</span>
+                        <span class="cover-emoji">📈</span>
+                        <h3>The Business<br>Mindset</h3>
+                        <small>IDEAS INTO ACTION</small>
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">Business</span>
+                        <h3>The Business Mindset</h3>
+                        <p>Sarah Wilson</p>
+                        <div class="book-bottom">
+                            <strong>₹399</strong>
+                            <button class="add-cart" type="button">+ Add</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card"
+                         data-category="Fiction"
+                         data-name="The Secret Garden"
+                         data-author="Frances Hodgson Burnett"
+                         data-price="299"
+                         data-icon="🌿"
+                         data-colour="pink">
+                    <div class="book-cover cover-pink">
+                        <span class="cover-label">A CLASSIC STORY</span>
+                        <span class="cover-emoji">🌿</span>
+                        <h3>The Secret<br>Garden</h3>
+                        <small>WONDER • HOPE • GROWTH</small>
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">Fiction</span>
+                        <h3>The Secret Garden</h3>
+                        <p>Frances H. Burnett</p>
+                        <div class="book-bottom">
+                            <strong>₹299</strong>
+                            <button class="add-cart" type="button">+ Add</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card"
+                         data-category="Competitive Exams"
+                         data-name="Exam Success Guide"
+                         data-author="Amit Sharma"
+                         data-price="350"
+                         data-icon="🎓"
+                         data-colour="yellow">
+                    <div class="book-cover cover-yellow">
+                        <span class="cover-label">PREPARE • PRACTISE • ACHIEVE</span>
+                        <span class="cover-emoji">🎓</span>
+                        <h3>Exam Success<br>Guide</h3>
+                        <small>YOUR GOALS MATTER</small>
+                    </div>
+                    <div class="book-info">
+                        <span class="book-category">Competitive Exams</span>
+                        <h3>Exam Success Guide</h3>
+                        <p>Amit Sharma</p>
+                        <div class="book-bottom">
+                            <strong>₹350</strong>
+                            <button class="add-cart" type="button">+ Add</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <p id="emptyMessage" class="empty-message" hidden>
+                No books found. Try another search or category.
+            </p>
+        </section>
+
+        <!-- Special Offer -->
+        <section class="offer-section" id="offers">
+            <div class="offer-content">
+                <span class="eyebrow">A LITTLE SOMETHING FOR READERS</span>
+                <h2>Your next favourite book<br>comes with a little <span>extra.</span></h2>
+                <p>Enjoy 20% off selected books and make room for more stories.</p>
+                <a href="#books" class="btn btn-light">Shop the Collection →</a>
+                <small class="offer-note">Demo offer for this website project. Terms may apply.</small>
+            </div>
+            <div class="offer-art">
+                <span>20%</span>
+                <strong>OFF</strong>
+                <small>SELECTED BOOKS</small>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter" id="contact">
+            <span class="eyebrow">A NOTE FOR BOOK LOVERS</span>
+            <h2>Stay in the reading loop.</h2>
+            <p>Get book recommendations and special offers in your inbox.</p>
+
+            <form id="newsletterForm">
+                <input type="email" id="emailInput"
+                       placeholder="Enter your email address"
+                       aria-label="Email address" required>
+                <button class="btn btn-primary" type="submit">
+                    Subscribe →
+                </button>
+            </form>
+
+            <p id="newsletterMessage" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="#home" class="logo">ABC<span>Books.</span></a>
+        <p>Turning pages, opening possibilities.</p>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#books">Books</a>
+            <a href="#offers">Offers</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <p class="copyright">
+            © <span id="currentYear">2026</span> ABC Online Book Store.
+            All rights reserved.
+        </p>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
